@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        node 
+            初始化
+                npm init    自定义
+                npm init -y   默认
+            安装本地包
+                npm install 包名  -g(加-g就是全局)
+            删除本地包
+                npm uninstall 包名
+
+            安装记录包
+                npm install -S  (--save) 将依赖包添加到当前项目的packge.json的dependencies节点 (记录当前项目任何阶段所依赖的包)
+                npm install -D  (--save-dev)将依赖包添加到当前项目的packge.json的devDependencies节点 (记录当前项目开发阶段所依赖的包,上线后不需要)
+                                (--production)
+                在NPM5.x以后 ,--save都省略,直接npm install会默认将包加入到dependencies节点下
+
+
+            package.json 文件:
+                所有npm项目都需要有该文件,在项目的根目录下
+                    必须要有1.name
+                            2.version
+                            3.main
+            使用cnpm提高下载速度
+                安装cnpm到全局
+                    npm install cnpm -g
+                使用cnpm同npm   （将npm换成cnpm）
+
+
+
+            http模块
+                导入http核心模块
+                    const http=require（'http'）
+
+                创建一个web服务器对象
+                    const server=http.createServer()
+
+                为服务器绑定 监听函数   当有请求就触发事件
+                    server.on('request',(request,res)=>{
+                    
+                        // console.log(request.url)//请求地址
+                        res.writeHeader(200,{
+                            'Content-Type':'text/plain;charset=utf-8'
+                            //text/html  解析标签
+                        })
+                        // res.end('hello world')
+                        const url=request.url
+
+                        if(url==='/'||url==='/index.html'){
+                            res.end('首页')
+                        }else if(url==='/move.html'){
+                            res.end('电影')
+                        }else if(url==='/music.html'){
+                            res.end('音乐')
+                        }else if(url==='/about.html'){
+                            res.end('关于')
+                        }else{
+                            res.end('请求不存在 404')
+                        }
+                    })
+
+                开启服务器listen
+                    server.listen('3000','127.0.0.1',()=>{
+                        console.log('开启服务器成功,请访问:http://127.0.0.1:3000')
+                    })
+
+
+
+
+                
+    </script>
+</head>
+<body>
+    
+</body>
+</html> 
