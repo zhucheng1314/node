@@ -1,0 +1,11 @@
+{
+  "name": "",
+  "version": "",
+  "dependencies": {
+    "art-template": "^4.13.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-art-template": "^1.0.1",
+    "jquery": "^3.3.1"
+  }
+}

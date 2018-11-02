@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        express的常用方法
+            const express=require('express')
+            const app=express()
+
+            app.get('/',(req,res)=>{
+                res.send()
+                    //可以用来向客户端响应数据,支持的数据有三种
+                        1.字符串
+                        2.对象或数组
+                        3.二进制 SourceBufferList
+
+
+
+
+                res.sendFile()
+                    //可以用来向客户端响应文件,直接可以将HTML页面返回
+                        参数1:路径,只传入一个参数,该路径必须是绝对路径 
+                        参数2:如果第一个参数是相对路径,第二个参数必须是相对相对于那个绝对路径,{root:__dirname}
+            })
+
+
+            注册静态资源托管的中间件
+                app.use(express.static('./views'))
+
+                app.use('views',express.static('./page'))
+                    参数1:虚拟目录,
+
+            
+            ejs简介
+                是服务端比较常用的一个模板引擎,与art-template相似
+    
+            app.listen(3000,()=>{
+                console.log('请访问:http://127..0.0.1:3000')
+            })
+    
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
